@@ -106,3 +106,46 @@
 // const pozdrowieniaArr = greeting => name => console.log(`${greeting} ${name}`);
 // pozdrowieniaArr(1)(2); //zwracam jakby dwa argumenty podane w dwoch funkcjach ktore sa wyzej zapisane w console.log w tym przypadku do fukncji greeting 1 a name 2
 
+const lot = {
+    airline: `LOT`,
+    iataCode: `LOTPL`,
+    bookings: [],
+    book(flightNum, name){
+        console.log(
+            `${name} poleci sobie ${this.airline}
+            lotem ${this.iataCode}${flightNum}`
+        );
+        this.bookings.push({flight: `${this.iataCode}${flightNum}`, name});
+    },
+};
+
+lot.book(2115, `Kuba`);
+lot.book(2137, `Marek`);
+
+
+const innylot = {
+    airline: 'Hell',
+    iataCode: `Piekło`,
+    bookings: [],
+};
+
+const book = lot.book;
+
+//to nie zadziała
+// book(332, `Tomasz`);
+
+//call metoda
+book.call(innylot, 332, `Tomasz`);
+
+
+book.call(lot, 767, `Uszaty`);
+console.log(lot);
+
+//apply metoda
+const flightData = [854, `Jakub Marciniak`];
+book.apply(innylot, flightData);
+console.log(innylot);
+
+//lepsza wersja co wyzej
+book.call(innylot, ...flightData);
+
