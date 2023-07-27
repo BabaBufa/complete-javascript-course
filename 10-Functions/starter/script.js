@@ -43,3 +43,53 @@
 // newPassport(kuba);
 // checkIn(flight, kuba);
 // console.log(kuba);
+
+// const oneWord = function(str) {
+//     return str.replace(/ /g, ``).toLowerCase();
+// }
+
+// const upperFirstWord = function(str) {
+//     const [first, ...others]= str.split(` `);
+//     return [first.toUpperCase(),...others].join(` `);
+// }
+
+// // Higher-order function
+// const transformer = function(str,fn) {
+// console.log(`Orginalny string: ${str}`);
+// console.log(`Przerobiony string: ${fn(str)}`);
+// console.log(`Przerobione przez funkcję: ${fn.name}`);
+// }
+
+// transformer(`Legia Warszawa potęga!`, upperFirstWord);
+// transformer(`Marzy mi się leżeć na plaży`, oneWord);
+
+// const high5 = function() {
+//     console.log(`Chodz piąteczkę przybijesz`);
+// }
+
+// document.body.addEventListener(`click`, high5); //klikanie na stronie wywołuje komunikat na stronie
+
+// [`Kuba`, `Tomek`, `Maurycy`].forEach(high5);
+
+
+// const lewak = function(str) {
+//     if (str === `lewak` || str === `lgbt`){
+//         return false;
+//     } else {
+//         return true;
+//     }
+// }
+// console.log(lewak(`asdasd`))
+
+// const trans = function(str, fn) {
+//     if(fn(str)){
+//         console.log(`Brawo no brawo ${str}`);
+//     } else {
+//         console.log(`Dumny jesteś wykorzystany przez ${fn.name}`);
+
+//     }
+       
+// }
+
+// trans(`prawak`, lewak); //xdd działa
+
