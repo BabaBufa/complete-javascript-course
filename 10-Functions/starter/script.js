@@ -106,46 +106,75 @@
 // const pozdrowieniaArr = greeting => name => console.log(`${greeting} ${name}`);
 // pozdrowieniaArr(1)(2); //zwracam jakby dwa argumenty podane w dwoch funkcjach ktore sa wyzej zapisane w console.log w tym przypadku do fukncji greeting 1 a name 2
 
-const lot = {
-    airline: `LOT`,
-    iataCode: `LOTPL`,
-    bookings: [],
-    book(flightNum, name){
-        console.log(
-            `${name} poleci sobie ${this.airline}
-            lotem ${this.iataCode}${flightNum}`
-        );
-        this.bookings.push({flight: `${this.iataCode}${flightNum}`, name});
-    },
-};
+// const lot = {
+//     airline: `LOT`,
+//     iataCode: `LOTPL`,
+//     bookings: [],
+//     book(flightNum, name){
+//         console.log(
+//             `${name} poleci sobie ${this.airline}
+//             lotem ${this.iataCode}${flightNum}`
+//         );
+//         this.bookings.push({flight: `${this.iataCode}${flightNum}`, name});
+//     },
+// };
 
-lot.book(2115, `Kuba`);
-lot.book(2137, `Marek`);
-
-
-const innylot = {
-    airline: 'Hell',
-    iataCode: `Piekło`,
-    bookings: [],
-};
-
-const book = lot.book;
-
-//to nie zadziała
-// book(332, `Tomasz`);
-
-//call metoda
-book.call(innylot, 332, `Tomasz`);
+// lot.book(2115, `Kuba`);
+// lot.book(2137, `Marek`);
 
 
-book.call(lot, 767, `Uszaty`);
-console.log(lot);
+// const innylot = {
+//     airline: 'Hell',
+//     iataCode: `Piekło`,
+//     bookings: [],
+// };
 
-//apply metoda
-const flightData = [854, `Jakub Marciniak`];
-book.apply(innylot, flightData);
-console.log(innylot);
+// const book = lot.book;
 
-//lepsza wersja co wyzej
-book.call(innylot, ...flightData);
+// //to nie zadziała
+// // book(332, `Tomasz`);
+
+// //call metoda
+// book.call(innylot, 332, `Tomasz`);
+
+
+// book.call(lot, 767, `Uszaty`);
+// console.log(lot);
+
+// //apply metoda
+// const flightData = [854, `Jakub Marciniak`];
+// book.apply(innylot, flightData);
+// console.log(innylot);
+
+// //lepsza wersja co wyzej
+// book.call(innylot, ...flightData);
+
+// const bookInnyLOT = book.bind(innylot);
+// const bookLOT = book.bind(lot);
+
+// bookInnyLOT(888, `Marcin Marciniak`);
+
+// const bookInnyLOT999 = book.bind(innylot, 999);
+// bookInnyLOT999(`Maciek Wieszak`);
+// bookInnyLOT999(`Maciek Malutki`);
+
+// lot.planes = 300;
+// lot.buyPlane = function(){
+//     this.planes++;
+//     console.log(this.planes);
+// };
+// document.querySelector(`.buy`).addEventListener(`click`, lot.buyPlane.bind(lot)); //po nacisnieciu dodajemy samolocik
+
+// // Partial aplication
+// const addTax = (rate, value) => value + value * rate;
+// console.log(addTax(0.1, 200));
+
+// const addVAT = addTax.bind(null, 0.23);
+// console.log(addVAT(100));
+
+// //chalenge zrobilem sam wynik wyszedl taki jak mial wyjsc ale chyba nie w ten sposob chyba mialem zrobic
+// const addVAT1 = addTax.call(null, 0.23, 100);
+// console.log(addVAT1);
+
+
 
