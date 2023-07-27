@@ -1,10 +1,15 @@
+
+
 'use strict';
+
+// Data needed for a later exercise
+
 
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-// Data needed for first part of the section
+
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
   [weekdays[3]]: {
@@ -53,88 +58,39 @@ const restaurant = {
   },
 };
 
-///////////////////////////////////////
-// Coding Challenge #2
+for (const flight of flights.split(`+`)) {
+  const [type, from, to, time] = flight.split(`;`);
+  const output = `${type.startsWith(`_Delayed`) ? `dupa` : ``} ${type.replaceAll(`_`, ` `)} from ${from.slice(0, 3).toUpperCase()} to ${to.slice(0, 3).toUpperCase()} (${time.replace(`:`, `h`)})`.padStart(50);
+  console.log(output);
+}
 
-/* 
-Let's continue with our football betting app!
+// console.log(`legia+warszawa+to+najleszy+klub`.split(`+`));
+// console.log(`Jakub Maricniak`.split(` `));
 
-1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
-2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
-3. Print the 3 odds to the console, but in a nice formatted way, exaclty like this:
-      Odd of victory Bayern Munich: 1.33
-      Odd of draw: 3.25
-      Odd of victory Borrussia Dortmund: 6.5
-Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: Note how the odds and the game objects have the same property names 😉
+// const [firstName, lastName] = `Jakub Maricniak`.split(` `);
 
-BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
-      {
-        Gnarby: 1,
-        Hummels: 1,
-        Lewandowski: 2
-      }
+// const newName = [`Mr.`, firstName, lastName.toUpperCase()].join(` `);
+// console.log(newName);
 
-GOOD LUCK 😀
-*/
+// const capitalizeName = function (name) {
+//   const names = name.split(` `);
+//   const namesUpper = [];
+//   for (const n of names) {
+//     namesUpper.push(n[0].toUpperCase() + n.slice(1))
+//   }
+//   console.log(namesUpper.join(` `));
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// };
+// capitalizeName(`tomek uszatek szofer gnypek`);
 
-/// 1
- for (const [i, player] of game.scored.entries()) {
-  console.log(`Goal ${i + 1}: ${player}`);
- };
+// const maskCreditCard = function (number) {
+//   const str = number + ``;
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, `*`);
 
- /// 2
-const odds = Object.values(game.odds);
-let average = 0;
-for (const odd of odds) average += odd;
-average /= odds.length;
-console.log(average);
+// }
 
-/// 3
-for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
-  console.log(`Odd of ${teamStr} ${odd}`);
-};
+// console.log(maskCreditCard(12345678998764678));
 
 
 
@@ -142,71 +98,157 @@ for (const [team, odd] of Object.entries(game.odds)) {
 
 
 
+// const airline = `LOT Polska linia lotnicza`;
+// const plane = `A320`;
 
+// const checkMiddleSeat = function (seat) {
+//   const s = seat.slice(-1);
+//   if (s === `B` || s === `E`)
+//     console.log(`No siedzisz w srodku`);
+//   else console.log(`Fart`);
+// }
 
+// checkMiddleSeat(`11B`);
+// checkMiddleSeat(`23C`);
+// checkMiddleSeat(`3E`);
 
+// const email = `mroczny322@gmail.com`;
+// const loginEmail = `           Mroczny322@Gmail.Com \n`;
 
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
 
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail);
+// console.log(trimmedEmail);
 
+// const pricePL = `288,97zl`;
+// const priceUS = pricePL.replace(`zl`, `$`).replace(`,`, `.`);
+// console.log(priceUS);
 
+// const planeA = `A320neo`;
+// console.log(planeA.includes(`A320`));
+// console.log(planeA.includes(`Polonia`));
 
+// const question = new Map([
+//   [`question`, `Legia czy polonia?`],
+//   [1, `Legia`],
+//   [2, `Polonia`],
+//   [`correct`, 1],
+//   [true, `Dobrze`],
+//   [false, `W dziób`]
+// ]);
+// console.log(question);
 
+// console.log(question.get(`question`));
+// for (const [key, value] of question) {
+//   if (typeof key === `number`) console.log(`Odpowiedz ${key}: ${value}`);
+// }
+// const answer = Number(prompt(`Twoja szansa`));
+// console.log(answer);
+// console.log(question.get(question.get(`correct`) === answer));
 
 
+// const rest = new Map();
+// rest.set(`name`, `Classico Italiano`);
+// rest.set(1, `Firenze, Italy`);
+// rest.set(2, `Lisbon, Portugal`);
 
+// rest.set(`categories`, ['Italian', 'Pizzeria', 'Vegetarian', 'Organic']).set(`open`, 11).set(`close`, 23).set(true, `we are open`).set(false, `We are closed`);
 
+// const time = 21;
+// console.log(rest.get(time > rest.get(`open`) && time < rest.get(`close`)));
 
 
 
 
+// restaurant.numGuests = 0;
 
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
 
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect);
 
+// restaurant.orderDeliver(1, 0, '12:30', 'Grochowska 56');
 
+// const ingredients = [prompt(`Let make pasta! Ingredient 1?`), prompt(`Let make pasta! Ingredient 2?`), prompt(`Let make pasta! Ingredient 3?`)];
+// console.log(ingredients);
 
+// restaurant.orderPasta(...ingredients);
 
+// const newRestaurant = { foundedIn: 1998, ...restaurant, founder: `Zabka` };
+// console.log(newRestaurant);
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = `Niebo w gębie`;
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
 
+// const arr = [1, 2, ...[3, 4]];
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
 
+// const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(pizza, risotto, otherFood);
 
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
 
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+//   console.log(sum);
+// }
+// add(2, 3)
 
+// const x = [23, 5, 7];
+// add(...x);
+// restaurant.orderPizza(`grzyby`, `ziolo`, `szklo`);
 
+// console.log(restaurant.order(2, 0));
 
+// const nested = [2, 4, [5, 6]];
+// // const [i, , j] = nested;
+// // console.log(i, j);
+// const [i, , [j, k]] = nested;
+// console.log(i, j, k);
 
+// const [p = 1, q = 1, r = 1] = [8, 9];
+// console.log(p, q, r);
 
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
 
+// const { name: restaurantName, openingHours: hours, categories: tags } = restaurant;
+// console.log(restaurantName);
 
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
 
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
 
+// ({ a, b } = obj);
+// console.log(a, b);
 
+// const { fri: { open, close } } = openingHours;
+// console.log(open, close);
 
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
 
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
 
 
+// const newMenu = [...restaurant.mainMenu, `HotDog`];
+// console.log(newMenu);
 
+// const mainMenuCopy = [...restaurant.mainMenu];
+// const menu2 = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu2);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Coding challenge 1
 // const game = {
 //   team1: 'Bayern Munich',
 //   team2: 'Borrussia Dortmund',
@@ -278,20 +320,53 @@ for (const [team, odd] of Object.entries(game.odds)) {
 // //7
 // team1 < team2 && console.log(`Lewandolish`);
 
+///////////////////////////////////////
+// Coding Challenge #4
 
-/////////////////////
-// const properties = Object.keys(openingHours);
-// let openStr = `We are open on ${properties.length} days: `;
+/*
+Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
 
-// for (const day of properties) {
-//   openStr += `${day}, `;
-// }
-// console.log(openStr);
+The input will come from a textarea inserted into the DOM (see code below), and conversion will happen when the button is pressed.
 
-// const values = Object.values(openingHours);
+THIS TEST DATA (pasted to textarea)
+underscore_case
+ first_name
+Some_Variable
+  calculate_AGE
+delayed_departure
 
-// const entries = Object.entries(openingHours);
+SHOULD PRODUCE THIS OUTPUT (5 separate console.log outputs)
+underscoreCase      ✅
+firstName           ✅✅
+someVariable        ✅✅✅
+calculateAge        ✅✅✅✅
+delayedDeparture    ✅✅✅✅✅
 
-// for (const [key, {open, close}] of entries) {
-//   console.log(`On ${key} we open at ${open} and close at ${close}`);
-// }
+HINT 1: Remember which character defines a new line in the textarea 😉
+HINT 2: The solution only needs to work for a variable made out of 2 words, like a_b
+HINT 3: Start without worrying about the ✅. Tackle that only after you have the variable name conversion working 😉
+HINT 4: This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
+
+Afterwards, test with your own test data!
+
+GOOD LUCK 😀
+*/
+
+
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
+
+// document.querySelector('button').addEventListener('click', function () {
+//   const text = document.querySelector('textarea').value;
+//   const rows = text.split('\n');
+
+//   for (const [i, row] of rows.entries()) {
+//     const [first, second] = row.toLowerCase().trim().split('_');
+
+//     const output = `${first}${second.replace(
+//       second[0],
+//       second[0].toUpperCase()
+//     )}`;
+//     console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+//   }
+// });
