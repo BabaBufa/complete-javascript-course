@@ -93,3 +93,16 @@
 
 // trans(`prawak`, lewak); //xdd działa
 
+// const greet = function(greeting) {
+//     return function(name){
+//         console.log(`${greeting} ${name}`)
+//     }
+// }
+
+// const pozdrowienia = greet(`Strzała`);
+// pozdrowienia(`Kuba`);
+
+// //Challenge
+// const pozdrowieniaArr = greeting => name => console.log(`${greeting} ${name}`);
+// pozdrowieniaArr(1)(2); //zwracam jakby dwa argumenty podane w dwoch funkcjach ktore sa wyzej zapisane w console.log w tym przypadku do fukncji greeting 1 a name 2
+
