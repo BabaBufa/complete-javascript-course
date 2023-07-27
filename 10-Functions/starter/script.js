@@ -211,45 +211,68 @@ BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 GOOD LUCK 😀
 */
 
-const poll = {
-    question: 'Jaki jest twój ulubiony język programowania?',
-    options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
-    // This generates [0, 0, 0, 0]. More in the next section 😃
-    answers: new Array(4).fill(0),
-    registerNewAnswer() {
-        const answer = Number(
-            prompt(`${this.question}\n ${this.options.join(`\n`)}\n(Napisz numer odpowiadający opcji)`)
-        )
-        if (answer > 3){
-            console.log(`Zła odpowiedź popraw klikając na przycisk`)
-        }
-        // if (answer > 3) {
-        //     console.log(`Zła liczba popraw klikając na przycisk`);
-        // } else if(answer === 0){
-        //     console.log(`Twoja odpowiedź ${this.options[0]}`)
-        // } else if (answer === 1) {
-        //     console.log(`Twoja odpowiedź ${this.options[1]}`)
-        // } else if (answer === 2) {
-        //     console.log(`Twoja odpowiedź ${this.options[2]}`)
-        // } else {
-        //     console.log(`Twoja odpowiedź ${this.options[3]}`)
-        // } NO FAJNIE DZIAŁA ALE NIE O TO CHODZIŁO 
-        typeof answer === 'number' && answer < this.answers.length && this.answers[answer]++;
+// const poll = {
+//     question: 'Jaki jest twój ulubiony język programowania?',
+//     options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+//     // This generates [0, 0, 0, 0]. More in the next section 😃
+//     answers: new Array(4).fill(0),
+//     registerNewAnswer() {
+//         const answer = Number(
+//             prompt(`${this.question}\n ${this.options.join(`\n`)}\n(Napisz numer odpowiadający opcji)`)
+//         )
+//         if (answer > 3){
+//             console.log(`Zła odpowiedź popraw klikając na przycisk`)
+//         }
+//         // if (answer > 3) {
+//         //     console.log(`Zła liczba popraw klikając na przycisk`);
+//         // } else if(answer === 0){
+//         //     console.log(`Twoja odpowiedź ${this.options[0]}`)
+//         // } else if (answer === 1) {
+//         //     console.log(`Twoja odpowiedź ${this.options[1]}`)
+//         // } else if (answer === 2) {
+//         //     console.log(`Twoja odpowiedź ${this.options[2]}`)
+//         // } else {
+//         //     console.log(`Twoja odpowiedź ${this.options[3]}`)
+//         // } NO FAJNIE DZIAŁA ALE NIE O TO CHODZIŁO 
+//         typeof answer === 'number' && answer < this.answers.length && this.answers[answer]++;
         
-        this.displayResults();
-        this.displayResults(`string`);
-    },
-    displayResults(type = 'array') {
-        if (type === 'array') {
-          console.log(this.answers);
-        } else if (type === 'string') {
-          console.log(`Wyniki to ${this.answers.join(', ')}`);
-        }
-      },
-};
+//         this.displayResults();
+//         this.displayResults(`string`);
+//     },
+//     displayResults(type = 'array') {
+//         if (type === 'array') {
+//           console.log(this.answers);
+//         } else if (type === 'string') {
+//           console.log(`Wyniki to ${this.answers.join(', ')}`);
+//         }
+//       },
+// };
 
-poll.registerNewAnswer();
-document.querySelector(`.poll`).addEventListener(`click`, poll.registerNewAnswer.bind(poll));
+// poll.registerNewAnswer();
+// document.querySelector(`.poll`).addEventListener(`click`, poll.registerNewAnswer.bind(poll));
 
-// BONUS chyba latwiejsze
-poll.displayResults.call({answers: [5, 2, 3]}, `string`)
+// // BONUS chyba latwiejsze
+// poll.displayResults.call({answers: [5, 2, 3]}, `string`)
+
+// Immediately Invoked Function Expressions (IIFE)
+// const odpalRaz = function () {
+//     console.log('Raz sie tylko odpali');
+//   };
+//   odpalRaz();
+  
+//   // IIFE
+//   (function () {
+//     console.log('To się odpali naprawde tylko raz');
+//     const isPrivate = 23;
+//   })();
+  
+// //   console.log(isPrivate);
+
+//   (() => console.log('to tez sie odpali raz'))();
+
+//   {
+//     const pyk = 23;
+//     var pyknieprywatne = 23;
+//   }
+//   console.log(pyknieprywatne);
+// //   console.log(pyk);
