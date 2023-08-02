@@ -276,3 +276,19 @@ GOOD LUCK 😀
 //   }
 //   console.log(pyknieprywatne);
 // //   console.log(pyk);
+
+const secureBooing = function() {
+    let passengerCount = 0;
+    return function() {
+      passengerCount++;
+      console.log(`${passengerCount} passengers`);
+    }
+}
+
+const booker = secureBooing();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
