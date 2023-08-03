@@ -271,7 +271,25 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // //JOIN
 // console.log(letters.join(` - `));
 
-const arr = [23, 11, 64];
-console.log(arr.at(0));
-console.log(arr.slice(-1));
-console.log(arr.at(-1));
+// const arr = [23, 11, 64];
+// console.log(arr.at(0));
+// console.log(arr.slice(-1));
+// console.log(arr.at(-1));
+
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`Zdepozytowałeś ${movement}`);
+  } else {
+    console.log(`Wyciągasz ${Math.abs(movement)}`);
+  }
+}
+
+console.log(`-------FOREACH----------`);
+
+movements.forEach(function (movement, index, array) {
+  if (movement > 0) {
+    console.log(`Ruch numer ${index + 1}: Zdepozytowałeś ${movement}`);
+  } else {
+    console.log(`Ruch numer ${index + 1}: Wyciągasz ${Math.abs(movement)}`);
+  }
+})
