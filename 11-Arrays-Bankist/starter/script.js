@@ -332,7 +332,7 @@ const dogs = dogsKate.concat(dogsJuliaPoprawione);
 console.log(dogs);
 
 dogs.forEach(function (dog, index, array) {
-  if (dog > 3) {
+  if (dog >= 3) {
     console.log(`Pies numer ${index + 1}: Jest psem dorosłym i ma ${dog} lat`);
   } else {
     console.log(`Pies numer ${index + 1}: Jest szczeniakiem i ma ${dog} lat`);
