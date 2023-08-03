@@ -246,27 +246,32 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
-let arr = [`a`, `b`, `c`, `d`, `e`];
+// let arr = [`a`, `b`, `c`, `d`, `e`];
 
-//SLICE
-console.log(arr.slice(2));
+// //SLICE
+// console.log(arr.slice(2));
+// console.log(arr.slice(-1));
+// console.log(arr.slice(0, -2));
+// console.log(arr.slice());
+
+// //SPLICE
+// // console.log(arr.splice(2))
+// arr.splice(-1);
+// console.log(arr);
+
+// //REVERSE
+// arr = [`a`, `b`, `c`, `d`, `e`];
+// const arr2 = [`j`, `i`, `h`, `g`, `f`];
+// console.log(arr2.reverse()); //jakbym wyswietlil samo arr2 to sie wyswietli po mutacji podobnie jak przy splice
+
+// //CONCAT
+// const letters = arr.concat(arr2);
+// console.log(letters);
+
+// //JOIN
+// console.log(letters.join(` - `));
+
+const arr = [23, 11, 64];
+console.log(arr.at(0));
 console.log(arr.slice(-1));
-console.log(arr.slice(0, -2));
-console.log(arr.slice());
-
-//SPLICE
-// console.log(arr.splice(2))
-arr.splice(-1);
-console.log(arr);
-
-//REVERSE
-arr = [`a`, `b`, `c`, `d`, `e`];
-const arr2 = [`j`, `i`, `h`, `g`, `f`];
-console.log(arr2.reverse()); //jakbym wyswietlil samo arr2 to sie wyswietli po mutacji podobnie jak przy splice
-
-//CONCAT
-const letters = arr.concat(arr2);
-console.log(letters);
-
-//JOIN
-console.log(letters.join(` - `));
+console.log(arr.at(-1));
