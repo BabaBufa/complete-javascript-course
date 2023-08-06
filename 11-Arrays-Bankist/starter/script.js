@@ -323,20 +323,33 @@ TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
 
-const dogsJulia = [3, 5, 2, 12, 7];
-const dogsKate = [9, 16, 6, 8, 3];
-const dogsJuliaPoprawione = dogsJulia.splice(1,2);
-console.log(dogsJuliaPoprawione);
+// const dogsJulia = [3, 5, 2, 12, 7];
+// const dogsKate = [9, 16, 6, 8, 3];
+// const dogsJuliaPoprawione = dogsJulia.splice(1,2);
+// console.log(dogsJuliaPoprawione);
 
-const dogs = dogsKate.concat(dogsJuliaPoprawione);
-console.log(dogs);
+// const dogs = dogsKate.concat(dogsJuliaPoprawione);
+// console.log(dogs);
 
-dogs.forEach(function (dog, index, array) {
-  if (dog >= 3) {
-    console.log(`Pies numer ${index + 1}: Jest psem dorosłym i ma ${dog} lat`);
-  } else {
-    console.log(`Pies numer ${index + 1}: Jest szczeniakiem i ma ${dog} lat`);
-  }
-})
+// dogs.forEach(function (dog, index, array) {
+//   if (dog >= 3) {
+//     console.log(`Pies numer ${index + 1}: Jest psem dorosłym i ma ${dog} lat`);
+//   } else {
+//     console.log(`Pies numer ${index + 1}: Jest szczeniakiem i ma ${dog} lat`);
+//   }
+// })
 
 //W CAŁOŚCI SAM
+
+const plnToEur = 4.47;
+const movementsEUR = movements.map(function(mov){
+  return mov * plnToEur;
+})
+
+console.log(movements);
+console.log(movementsEUR);
+
+const movementsEURfor = [];
+for (const mov of movements) movementsEURfor.push(mov * plnToEur);
+console.log(movementsEURfor);
+
