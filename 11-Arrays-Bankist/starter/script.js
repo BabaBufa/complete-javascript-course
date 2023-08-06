@@ -148,34 +148,20 @@ labelWelcome.textContent = `Welcone back, ${currentAccount.owner.split(` `)[0]}`
 containerApp.style.opacity = 100;
 inputLoginUsername.value = inputLoginPin.value = ``;
 inputLoginPin.blur();
-displayMovements(currentAccount.movements)
-calcDisplayBalance(currentAccount.movements)
-calcDisplaySummary(currentAccount)
+updateUI(currentAccount);
   }
 });
 
-btnTransfer.addEventListener('click', function (e) {
+btnTransfer.addEventListener(`click`, function(e){
   e.preventDefault();
   const amount = Number(inputTransferAmount.value);
-  const receiverAcc = accounts.find(
-    acc => acc.username === inputTransferTo.value
-  );
-  inputTransferAmount.value = inputTransferTo.value = '';
-
-  if (
-    amount > 0 &&
-    receiverAcc &&
-    currentAccount.balance >= amount &&
-    receiverAcc?.username !== currentAccount.username
-  ) {
-    // Doing the transfer
+  const receiverAcc =accounts.find(acc => acc.username === inputTransferTo.value);
+  inputTransferAmount.value = inputTransferTo.value = ``;
+  if (amount > 0 && receiverAcc && currentAccount.balance >= amount && receiverAcc?.username !== currentAccount.username){
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
-
-    // Update UI
     updateUI(currentAccount);
-  }
-});
+}})
 
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
