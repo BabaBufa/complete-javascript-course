@@ -341,15 +341,32 @@ GOOD LUCK 😀
 
 //W CAŁOŚCI SAM
 
-const plnToEur = 4.47;
-const movementsEUR = movements.map(function(mov){
-  return mov * plnToEur;
+// const plnToEur = 4.47;
+// const movementsEUR = movements.map(function(mov){
+//   return mov * plnToEur;
+// })
+
+// console.log(movements);
+// console.log(movementsEUR);
+
+// const movementsEURfor = [];
+// for (const mov of movements) movementsEURfor.push(mov * plnToEur);
+// console.log(movementsEURfor);
+
+
+
+const tworzenieNazwy = function (accs) {
+accs.forEach(function(acc){
+  acc.username = acc.owner.
+  toLowerCase()
+  .split(` `)
+  .map(name => 
+    name[0]).join(``);
 })
+};
 
-console.log(movements);
-console.log(movementsEUR);
+tworzenieNazwy(accounts);
+console.log(accounts);
 
-const movementsEURfor = [];
-for (const mov of movements) movementsEURfor.push(mov * plnToEur);
-console.log(movementsEURfor);
+
 
