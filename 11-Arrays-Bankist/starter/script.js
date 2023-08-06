@@ -140,28 +140,17 @@ const updateUI = function (acc) {
 // Event handlers
 let currentAccount;
 
-btnLogin.addEventListener('click', function (e) {
-  // Prevent form from submitting
+btnLogin.addEventListener(`click`, function(e){
   e.preventDefault();
-
-  currentAccount = accounts.find(
-    acc => acc.username === inputLoginUsername.value
-  );
-  console.log(currentAccount);
-
-  if (currentAccount?.pin === Number(inputLoginPin.value)) {
-    // Display UI and message
-    labelWelcome.textContent = `Welcome back, ${
-      currentAccount.owner.split(' ')[0]
-    }`;
-    containerApp.style.opacity = 100;
-
-    // Clear input fields
-    inputLoginUsername.value = inputLoginPin.value = '';
-    inputLoginPin.blur();
-
-    // Update UI
-    updateUI(currentAccount);
+  currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
+  if (currentAccount?.pin === Number(inputLoginPin.value)){
+labelWelcome.textContent = `Welcone back, ${currentAccount.owner.split(` `)[0]}`;
+containerApp.style.opacity = 100;
+inputLoginUsername.value = inputLoginPin.value = ``;
+inputLoginPin.blur();
+displayMovements(currentAccount.movements)
+calcDisplayBalance(currentAccount.movements)
+calcDisplaySummary(currentAccount)
   }
 });
 
@@ -466,5 +455,5 @@ GOOD LUCK 😀
 
 //   console.log(calcAverageHumanAge(lata));
 
-const firstWithdrawal = movements.find(mov => mov < 0);
-console.log(firstWithdrawal);
+// const firstWithdrawal = movements.find(mov => mov < 0);
+// console.log(firstWithdrawal);
