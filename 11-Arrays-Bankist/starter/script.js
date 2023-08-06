@@ -353,20 +353,30 @@ GOOD LUCK 😀
 // for (const mov of movements) movementsEURfor.push(mov * plnToEur);
 // console.log(movementsEURfor);
 
+// const tworzenieNazwy = function (accs) {
+// accs.forEach(function(acc){
+//   acc.username = acc.owner.
+//   toLowerCase()
+//   .split(` `)
+//   .map(name => 
+//     name[0]).join(``);
+// })
+// };
+
+// tworzenieNazwy(accounts);
+// console.log(accounts);
+
+const deposits = movements.filter(function(mov){
+  return mov > 0;
+});
+
+console.log(movements);
+console.log(deposits);
 
 
-const tworzenieNazwy = function (accs) {
-accs.forEach(function(acc){
-  acc.username = acc.owner.
-  toLowerCase()
-  .split(` `)
-  .map(name => 
-    name[0]).join(``);
+const withdrawals = movements.filter(function(mov){
+  return mov < 0;
 })
-};
-
-tworzenieNazwy(accounts);
-console.log(accounts);
-
+console.log(withdrawals);
 
 
